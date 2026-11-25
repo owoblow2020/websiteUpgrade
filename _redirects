@@ -1,6 +1,5 @@
-# Netlify Redirects for Grey Origin 360 Ltd
-/GreyOriginLtd.html  /naija-fuel-locator-privacy.html  200
-/GreyOriginLtd       /naija-fuel-locator-privacy.html  200
-/naija-fuel-locator-privacy       /index.html  200
-/naija-fuel-locator-privacy/      /index.html  200
-/naija-fuel-locator-privacy.html  /index.html  200
+# Netlify redirects for Grey Origin 360 Ltd
+# Old alias for the home page (GreyOriginLtd.html was a duplicate of index.html)
+/GreyOriginLtd.html  /  301
+/GreyOriginLtd       /  301
+# Clean URL for the privacy policy (Play Store link): /naija-fuel-locator-privacy also works

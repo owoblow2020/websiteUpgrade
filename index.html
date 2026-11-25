@@ -20,18 +20,6 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans"','sans-serif'
   .rise-2{animation-delay:.12s}.rise-3{animation-delay:.24s}.rise-4{animation-delay:.36s}
   .field{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);padding:.85rem 1rem;transition:border-color .15s}
   .field:focus{outline:none;border-color:#E23744}
-  /* Naija Fuel Locator privacy policy: shown as its own page when the URL ends in #naija-fuel-locator-privacy */
-  #naija-fuel-locator-privacy{display:none}
-  #naija-fuel-locator-privacy:target,body.privacy-view #naija-fuel-locator-privacy{display:block}
-  body:has(#naija-fuel-locator-privacy:target)>:not(header):not(#naija-fuel-locator-privacy):not(footer):not(script),
-  body.privacy-view>:not(header):not(#naija-fuel-locator-privacy):not(footer):not(script){display:none}
-  .policy h2{font-size:1.5rem;font-weight:700;margin:2.5rem 0 .75rem;scroll-margin-top:6rem}
-  .policy h3{font-weight:600;margin:1.5rem 0 .4rem;color:#fff}
-  .policy p,.policy li{color:#c3c8d6;line-height:1.7;max-width:70ch}
-  .policy a{color:#ff6b76;text-decoration:underline}
-  .policy .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.875rem}
-  .policy .row.head{font-weight:600;color:#fff}
-  @media(max-width:700px){.policy .row{grid-template-columns:1fr;gap:.2rem}.policy .row.head{display:none}.policy .row span[data-l]::before{content:attr(data-l) ": ";color:#fff;font-weight:600}}
 </style>
 </head>
 <body class="font-sans text-white antialiased selection:bg-signal selection:text-white">
@@ -160,7 +148,7 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans"','sans-serif'
         <p class="text-sm text-mist mt-1.5 leading-relaxed max-w-2xl">An Android app that helps drivers find petrol (PMS), diesel (AGO), CNG, kerosene (DPK) and cooking gas (LPG) at stations near them, or around any place they search, across Nigeria.</p>
         <div class="flex flex-wrap items-center gap-3 mt-5">
           <span class="badge px-3 py-1.5 font-mono text-xs text-mist"><i class="fa-brands fa-google-play mr-1.5"></i>Android · Coming soon to Google Play</span>
-          <a href="#naija-fuel-locator-privacy" class="px-5 py-2.5 text-sm border border-white/20 hover:border-white transition-colors font-semibold">Privacy Policy →</a>
+          <a href="naija-fuel-locator-privacy.html" class="px-5 py-2.5 text-sm border border-white/20 hover:border-white transition-colors font-semibold">Privacy Policy →</a>
         </div>
       </div>
     </div>
@@ -277,67 +265,6 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans"','sans-serif'
   </div>
 </section>
 
-<!-- NAIJA FUEL LOCATOR PRIVACY POLICY (shown alone at greyorigin.com.ng/#naija-fuel-locator-privacy) -->
-<section id="naija-fuel-locator-privacy" class="py-16">
-  <div class="max-w-3xl mx-auto px-6 policy">
-    <a href="#home" onclick="exitPrivacyPolicy(event)" class="text-sm" style="text-decoration:none">← Back to Grey Origin 360 Ltd</a>
-    <div class="flex items-center gap-4 mt-8">
-      <div class="w-14 h-14 flex-none rounded-2xl flex items-center justify-center" style="background:linear-gradient(135deg,#0a4a37,#127a5a)"><svg width="26" height="32" viewBox="0 0 28 34" aria-hidden="true"><path d="M14 1C6.8 1 1 6.6 1 13.6 1 22.4 10 28.9 14 33c4-4.1 13-10.6 13-19.4C27 6.6 21.2 1 14 1Z" fill="#f3c24f"/><circle cx="14" cy="13.5" r="5.5" fill="#073b2c"/></svg></div>
-      <div><p class="font-mono text-xs text-signal" style="color:#E23744">NAIJA FUEL LOCATOR</p><h1 class="text-3xl sm:text-4xl font-extrabold">Privacy Policy</h1></div>
-    </div>
-    <p class="text-sm mt-4">Effective 24 November 2026 · Published by Grey Origin 360 Ltd</p>
-
-    <div class="badge p-6 mt-8 grid sm:grid-cols-2 gap-x-8">
-      <h3 class="sm:col-span-2" style="margin-top:0">In short</h3>
-      <ul class="list-disc pl-5"><li>No sign-up or account.</li><li>No advertising, no analytics, no tracking.</li><li>We do not sell or rent your data.</li></ul>
-      <ul class="list-disc pl-5"><li>Your location is used only to find stations, while the app is open.</li><li>Fuel reports and your search balance stay on your phone.</li><li>Payments are handled entirely by Google Play.</li></ul>
-    </div>
-
-    <p class="mt-8">This policy explains how the Naija Fuel Locator Android app (package <code>com.greyorigin360.naijafuellocator</code>), developed by Grey Origin 360 Ltd (“we”, “us”), handles information when you use it. The app helps drivers in Nigeria find petrol (PMS), diesel (AGO), CNG, kerosene (DPK) and cooking gas (LPG) near them.</p>
-
-    <h2>Information the app uses</h2>
-    <h3>Your location</h3>
-    <p>With your permission, the app reads your device’s precise or approximate location while it is open, to show filling stations around you and their distance. Location is not collected in the background. We do not run servers that receive or store your location. To answer a search, your coordinates (or the area you are looking at) are sent to the map and place services listed below. You can refuse or withdraw location permission at any time in your phone’s settings and still search for places by name.</p>
-    <h3>Places you search for</h3>
-    <p>When you type a place, area or street into the search box, the text you type and your approximate location (to show nearby results first) are sent to Google Places or OpenStreetMap’s Nominatim service to suggest matching places. We do not keep a record of your searches.</p>
-    <h3>Fuel availability and price reports</h3>
-    <p>Reports you make about whether a station has fuel and at what price are saved only on your phone. They are not uploaded to us or shared with other users.</p>
-    <h3>Search balance and purchases</h3>
-    <p>The app counts your free and purchased searches on your phone. When you buy a search pack, Google Play gives the app a purchase confirmation (a purchase token and the product bought) so the searches can be added. This is stored on your phone only.</p>
-    <h3>Technical information</h3>
-    <p>Like any internet request, requests the app makes to the services below include your device’s IP address and basic technical details (such as app package name and device type). Those providers handle this under their own privacy policies. The app itself does not collect device identifiers, contacts, photos, files, or any other personal information.</p>
-
-    <h2>Who receives information</h2>
-    <p>The app connects directly from your phone to these services. We do not receive copies of what is sent.</p>
-    <div class="mt-3">
-      <div class="row head"><span>Service</span><span>Why</span><span>What it receives</span><span>Privacy policy</span></div>
-      <div class="row"><span data-l="Service">Google Maps &amp; Google Places (Google LLC)</span><span data-l="Why">Showing the map, finding stations near you, place suggestions</span><span data-l="Receives">Location or map area, search text, IP address</span><span data-l="Policy"><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></span></div>
-      <div class="row"><span data-l="Service">Google Play Billing (Google LLC)</span><span data-l="Why">Processing search pack purchases</span><span data-l="Receives">Your Google account and payment details, handled by Google</span><span data-l="Policy"><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></span></div>
-      <div class="row"><span data-l="Service">OpenStreetMap services (Overpass API, Nominatim, map tiles)</span><span data-l="Why">Stations around a searched place, naming your town, place search and map display when Google is unavailable</span><span data-l="Receives">Location or map area, search text, IP address</span><span data-l="Policy"><a href="https://osmfoundation.org/wiki/Privacy_Policy">osmfoundation.org/wiki/Privacy_Policy</a></span></div>
-      <div class="row"><span data-l="Service">OpenFreeMap</span><span data-l="Why">Map images when the OpenStreetMap map is shown</span><span data-l="Receives">Map area being viewed, IP address</span><span data-l="Policy"><a href="https://openfreemap.org">openfreemap.org</a></span></div>
-    </div>
-    <p class="mt-4">We may also disclose information if required by law. We do not share information with advertisers or data brokers.</p>
-
-    <h2>Purchases</h2>
-    <p>Search packs are sold through Google Play. Your card or other payment details go directly to Google; we never see or store them. Refunds and payment questions are handled under Google Play’s policies, and you can also contact us using the details below.</p>
-
-    <h2>Storage, security and deletion</h2>
-    <p>Everything the app stores (fuel reports, your search balance and purchase confirmations) is kept in the app’s private storage on your phone. Connections to the services above use encrypted HTTPS. Because we hold no account or server copy of your data, you can delete all of it at any time by clearing the app’s storage in your phone’s settings or uninstalling the app. Clearing data may also remove unused purchased searches; contact us if this happens and we will help.</p>
-
-    <h2>Children</h2>
-    <p>The app is intended for drivers and adults buying fuel. It is not directed at children under 13, and we do not knowingly collect personal information from children.</p>
-
-    <h2>Your rights</h2>
-    <p>Depending on where you live, including under Nigeria’s Data Protection Act 2023, you may have rights to access, correct or delete personal data and to object to its use. Since we do not hold personal data about you on our own systems, most of these rights are exercised by managing permissions and app data on your phone, or with the providers listed above. You can contact us with any request or question and we will reply within 30 days.</p>
-
-    <h2>Changes to this policy</h2>
-    <p>If the app starts using information in a new way, for example by sharing fuel reports between users, we will update this policy and change the effective date above before the change takes effect.</p>
-
-    <h2>Contact</h2>
-    <p>Grey Origin 360 Ltd · greyorigin.com.ng<br>Email: <a href="mailto:owolabi.olulegan@gmail.com">owolabi.olulegan@gmail.com</a></p>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer class="py-12">
   <div class="max-w-7xl mx-auto px-6">
@@ -347,7 +274,7 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans"','sans-serif'
         <p class="text-xs leading-relaxed max-w-sm">An integrated Nigerian enterprise driving growth through technology, financial consulting, real estate and global commerce.</p>
       </div>
       <div><h4 class="text-xs font-semibold text-white mb-4">Navigation</h4><ul class="space-y-2 text-xs"><li><a href="#about" class="hover:text-signal">About Us</a></li><li><a href="#divisions" class="hover:text-signal">Divisions</a></li><li><a href="#apps" class="hover:text-signal">Apps</a></li><li><a href="#calculator" class="hover:text-signal">Scope Estimator</a></li><li><a href="#governance" class="hover:text-signal">Governance</a></li></ul></div>
-      <div><h4 class="text-xs font-semibold text-white mb-4">Legal &amp; Regulatory</h4><ul class="space-y-2 text-xs"><li>CAMA 2020 Registered</li><li>Private Company Limited by Shares</li><li>Authorised Capital: ₦1,000,000</li><li>greyorigin.com.ng</li><li><a href="#naija-fuel-locator-privacy" class="hover:text-signal">Naija Fuel Locator Privacy Policy</a></li></ul></div>
+      <div><h4 class="text-xs font-semibold text-white mb-4">Legal &amp; Regulatory</h4><ul class="space-y-2 text-xs"><li>CAMA 2020 Registered</li><li>Private Company Limited by Shares</li><li>Authorised Capital: ₦1,000,000</li><li>greyorigin.com.ng</li><li><a href="naija-fuel-locator-privacy.html" class="hover:text-signal">Naija Fuel Locator Privacy Policy</a></li></ul></div>
     </div>
     <div class="flex flex-wrap gap-2 py-6 border-t border-hair text-[11px] font-mono text-mist">
       <span class="badge px-3 py-1.5">🔒 CAC Verified</span><span class="badge px-3 py-1.5">🛡️ Data Governed</span><span class="badge px-3 py-1.5">📜 Contracts on File</span><span class="badge px-3 py-1.5">⏱️ Audit Trail</span><span class="badge px-3 py-1.5">✅ CAMA 2020</span>
@@ -360,48 +287,7 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans"','sans-serif'
 </footer>
 
 <script>
-function syncPrivacyRoute(){
-  const p=window.location.pathname.toLowerCase();
-  const h=window.location.hash.toLowerCase();
-  const isPrivacy=h==='#naija-fuel-locator-privacy'||p.endsWith('/naija-fuel-locator-privacy')||p.endsWith('/naija-fuel-locator-privacy.html')||p.endsWith('/naija-fuel-locator-privacy/');
-  if(isPrivacy){
-    document.body.classList.add('privacy-view');
-    if(h!=='#naija-fuel-locator-privacy'){
-      try{history.replaceState(null,'',window.location.pathname+window.location.search+'#naija-fuel-locator-privacy');}catch(e){}
-    }
-    window.scrollTo(0,0);
-  }else{
-    document.body.classList.remove('privacy-view');
-  }
-}
-function exitPrivacyPolicy(e){
-  document.body.classList.remove('privacy-view');
-  const p=window.location.pathname.toLowerCase();
-  if(p.endsWith('/naija-fuel-locator-privacy')||p.endsWith('/naija-fuel-locator-privacy.html')||p.endsWith('/naija-fuel-locator-privacy/')){
-    if(e)e.preventDefault();
-    window.location.href='/#home';
-  }
-}
-document.addEventListener('click',function(e){
-  const a=e.target.closest('a[href^="#"]');
-  if(!a)return;
-  const href=a.getAttribute('href');
-  if(href==='#naija-fuel-locator-privacy'){
-    document.body.classList.add('privacy-view');
-    window.scrollTo(0,0);
-    return;
-  }
-  const p=window.location.pathname.toLowerCase();
-  if(p.endsWith('/naija-fuel-locator-privacy')||p.endsWith('/naija-fuel-locator-privacy.html')||p.endsWith('/naija-fuel-locator-privacy/')){
-    e.preventDefault();
-    window.location.href='/'+href;
-  }else{
-    document.body.classList.remove('privacy-view');
-  }
-});
-window.addEventListener('hashchange',syncPrivacyRoute);
-window.addEventListener('popstate',syncPrivacyRoute);
-document.addEventListener('DOMContentLoaded',function(){syncPrivacyRoute();document.getElementById('year-display').textContent=new Date().getFullYear();calculateScope();});
+document.addEventListener('DOMContentLoaded',function(){document.getElementById('year-display').textContent=new Date().getFullYear();calculateScope();});
 const mobileMenuBtn=document.getElementById('mobile-menu-btn'),mobileMenu=document.getElementById('mobile-menu'),menuIcon=document.getElementById('menu-icon');
 mobileMenuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');menuIcon.className=mobileMenu.classList.contains('hidden')?"fa-solid fa-bars text-xl":"fa-solid fa-xmark text-xl";});
 function calculateScope(){
