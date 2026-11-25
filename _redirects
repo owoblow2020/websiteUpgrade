@@ -1,0 +1,6 @@
+# Netlify Redirects for Grey Origin 360 Ltd
+/GreyOriginLtd.html  /index.html  200
+/GreyOriginLtd       /index.html  200
+/naija-fuel-locator-privacy       /index.html  200
+/naija-fuel-locator-privacy/      /index.html  200
+/naija-fuel-locator-privacy.html  /index.html  200

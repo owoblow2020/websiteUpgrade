@@ -22,8 +22,9 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans"','sans-serif'
   .field:focus{outline:none;border-color:#E23744}
   /* Naija Fuel Locator privacy policy: shown as its own page when the URL ends in #naija-fuel-locator-privacy */
   #naija-fuel-locator-privacy{display:none}
-  #naija-fuel-locator-privacy:target{display:block}
-  body:has(#naija-fuel-locator-privacy:target)>:not(header):not(#naija-fuel-locator-privacy):not(footer):not(script){display:none}
+  #naija-fuel-locator-privacy:target,body.privacy-view #naija-fuel-locator-privacy{display:block}
+  body:has(#naija-fuel-locator-privacy:target)>:not(header):not(#naija-fuel-locator-privacy):not(footer):not(script),
+  body.privacy-view>:not(header):not(#naija-fuel-locator-privacy):not(footer):not(script){display:none}
   .policy h2{font-size:1.5rem;font-weight:700;margin:2.5rem 0 .75rem;scroll-margin-top:6rem}
   .policy h3{font-weight:600;margin:1.5rem 0 .4rem;color:#fff}
   .policy p,.policy li{color:#c3c8d6;line-height:1.7;max-width:70ch}
@@ -279,7 +280,7 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans"','sans-serif'
 <!-- NAIJA FUEL LOCATOR PRIVACY POLICY (shown alone at greyorigin.com.ng/#naija-fuel-locator-privacy) -->
 <section id="naija-fuel-locator-privacy" class="py-16">
   <div class="max-w-3xl mx-auto px-6 policy">
-    <a href="#home" class="text-sm" style="text-decoration:none">← Back to Grey Origin 360 Ltd</a>
+    <a href="#home" onclick="exitPrivacyPolicy(event)" class="text-sm" style="text-decoration:none">← Back to Grey Origin 360 Ltd</a>
     <div class="flex items-center gap-4 mt-8">
       <div class="w-14 h-14 flex-none rounded-2xl flex items-center justify-center" style="background:linear-gradient(135deg,#0a4a37,#127a5a)"><svg width="26" height="32" viewBox="0 0 28 34" aria-hidden="true"><path d="M14 1C6.8 1 1 6.6 1 13.6 1 22.4 10 28.9 14 33c4-4.1 13-10.6 13-19.4C27 6.6 21.2 1 14 1Z" fill="#f3c24f"/><circle cx="14" cy="13.5" r="5.5" fill="#073b2c"/></svg></div>
       <div><p class="font-mono text-xs text-signal" style="color:#E23744">NAIJA FUEL LOCATOR</p><h1 class="text-3xl sm:text-4xl font-extrabold">Privacy Policy</h1></div>
@@ -359,7 +360,48 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans"','sans-serif'
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',function(){document.getElementById('year-display').textContent=new Date().getFullYear();calculateScope();});
+function syncPrivacyRoute(){
+  const p=window.location.pathname.toLowerCase();
+  const h=window.location.hash.toLowerCase();
+  const isPrivacy=h==='#naija-fuel-locator-privacy'||p.endsWith('/naija-fuel-locator-privacy')||p.endsWith('/naija-fuel-locator-privacy.html')||p.endsWith('/naija-fuel-locator-privacy/');
+  if(isPrivacy){
+    document.body.classList.add('privacy-view');
+    if(h!=='#naija-fuel-locator-privacy'){
+      try{history.replaceState(null,'',window.location.pathname+window.location.search+'#naija-fuel-locator-privacy');}catch(e){}
+    }
+    window.scrollTo(0,0);
+  }else{
+    document.body.classList.remove('privacy-view');
+  }
+}
+function exitPrivacyPolicy(e){
+  document.body.classList.remove('privacy-view');
+  const p=window.location.pathname.toLowerCase();
+  if(p.endsWith('/naija-fuel-locator-privacy')||p.endsWith('/naija-fuel-locator-privacy.html')||p.endsWith('/naija-fuel-locator-privacy/')){
+    if(e)e.preventDefault();
+    window.location.href='/#home';
+  }
+}
+document.addEventListener('click',function(e){
+  const a=e.target.closest('a[href^="#"]');
+  if(!a)return;
+  const href=a.getAttribute('href');
+  if(href==='#naija-fuel-locator-privacy'){
+    document.body.classList.add('privacy-view');
+    window.scrollTo(0,0);
+    return;
+  }
+  const p=window.location.pathname.toLowerCase();
+  if(p.endsWith('/naija-fuel-locator-privacy')||p.endsWith('/naija-fuel-locator-privacy.html')||p.endsWith('/naija-fuel-locator-privacy/')){
+    e.preventDefault();
+    window.location.href='/'+href;
+  }else{
+    document.body.classList.remove('privacy-view');
+  }
+});
+window.addEventListener('hashchange',syncPrivacyRoute);
+window.addEventListener('popstate',syncPrivacyRoute);
+document.addEventListener('DOMContentLoaded',function(){syncPrivacyRoute();document.getElementById('year-display').textContent=new Date().getFullYear();calculateScope();});
 const mobileMenuBtn=document.getElementById('mobile-menu-btn'),mobileMenu=document.getElementById('mobile-menu'),menuIcon=document.getElementById('menu-icon');
 mobileMenuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');menuIcon.className=mobileMenu.classList.contains('hidden')?"fa-solid fa-bars text-xl":"fa-solid fa-xmark text-xl";});
 function calculateScope(){
